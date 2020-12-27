@@ -16,6 +16,7 @@ final class Swift_CLITests: XCTestCase {
 
         let process = Process()
         process.executableURL = fooBinary
+        process.arguments = ["Hello", "--count", "3"]
 
         let pipe = Pipe()
         process.standardOutput = pipe
@@ -26,7 +27,7 @@ final class Swift_CLITests: XCTestCase {
         let data = pipe.fileHandleForReading.readDataToEndOfFile()
         let output = String(data: data, encoding: .utf8)
 
-        XCTAssertEqual(output, "Hello, world!\n")
+        XCTAssertEqual(output, "Hello\nHello\nHello\n")
     }
 
     /// Returns path to the built products directory.
