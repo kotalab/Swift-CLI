@@ -7,6 +7,7 @@ let package = Package(
     name: "Swift-CLI",
     dependencies: [
         .package(url: "https://github.com/apple/swift-argument-parser", from: "0.3.0"),
+        .package(url: "https://github.com/apple/swift-format", .branch("swift-5.3-branch"))
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
